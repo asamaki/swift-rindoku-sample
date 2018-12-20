@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # swift-rindoku-sample
 ## AppDelegate.swift
 * アプリ起動、アプリがバックグラウンドになった、アプリが終了したといった、起動や終了のイベントを受け取る
@@ -11,3 +12,6 @@
 ### ListViewController.xib
 * ListViewController.swiftの見た目を設定している
 * こっちはほぼいじらなくて良い
+=======
+# swift-rindoku-sample
+>>>>>>> origin/master
