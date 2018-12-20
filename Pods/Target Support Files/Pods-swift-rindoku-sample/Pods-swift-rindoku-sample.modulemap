@@ -1,0 +1,6 @@
+framework module Pods_swift_rindoku_sample {
+  umbrella header "Pods-swift-rindoku-sample-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -12,6 +12,8 @@
 		17DFDD6A211E7BF10060A993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17DFDD69211E7BF10060A993 /* Assets.xcassets */; };
 		17DFDD6D211E7BF10060A993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DFDD6B211E7BF10060A993 /* LaunchScreen.storyboard */; };
 		17DFDD75211E7D840060A993 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DFDD74211E7D840060A993 /* ListViewController.xib */; };
+		80E6745D21B8C436009E6035 /* SearchKeywordHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6745C21B8C436009E6035 /* SearchKeywordHistory.swift */; };
+		80E6745F21B8C49C009E6035 /* SearchKeywordHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6745E21B8C49C009E6035 /* SearchKeywordHistoryManager.swift */; };
 		9C042FEB216EE9B700689273 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C042FEA216EE9B700689273 /* User.swift */; };
 		9C042FED216EE9C200689273 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C042FEC216EE9C200689273 /* Repository.swift */; };
 		9C042FEF216EED4D00689273 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C042FEE216EED4D00689273 /* SearchResponse.swift */; };
@@ -25,6 +27,7 @@
 		9C993F242178252F00D789B1 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C993F232178252F00D789B1 /* GitHubAPI.swift */; };
 		9CA20FA8215C7EEB0014433A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA20FA6215C7EEB0014433A /* DetailViewController.swift */; };
 		9CA20FA9215C7EEB0014433A /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA20FA7215C7EEB0014433A /* DetailViewController.xib */; };
+		E983B8C2725F0D105BFCB71D /* Pods_swift_rindoku_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8270D882B047C7DE29A59DC7 /* Pods_swift_rindoku_sample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,10 @@
 		17DFDD6C211E7BF10060A993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17DFDD6E211E7BF10060A993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17DFDD74211E7D840060A993 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		4F2FE9774C2EE32300AB047B /* Pods-swift-rindoku-sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-rindoku-sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample.release.xcconfig"; sourceTree = "<group>"; };
+		80E6745C21B8C436009E6035 /* SearchKeywordHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordHistory.swift; sourceTree = "<group>"; };
+		80E6745E21B8C49C009E6035 /* SearchKeywordHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordHistoryManager.swift; sourceTree = "<group>"; };
+		8270D882B047C7DE29A59DC7 /* Pods_swift_rindoku_sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_rindoku_sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C042FEA216EE9B700689273 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C042FEC216EE9C200689273 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		9C042FEE216EED4D00689273 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		9C993F232178252F00D789B1 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		9CA20FA6215C7EEB0014433A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9CA20FA7215C7EEB0014433A /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		A2E9A9BB3B1CA76DC7DA39E7 /* Pods-swift-rindoku-sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-rindoku-sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E983B8C2725F0D105BFCB71D /* Pods_swift_rindoku_sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,8 @@
 			children = (
 				17DFDD61211E7BE40060A993 /* swift-rindoku-sample */,
 				17DFDD60211E7BE40060A993 /* Products */,
+				4710F56DA76087B07A2E2071 /* Pods */,
+				31691354354A9ED46E6A8A22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +96,7 @@
 				17DFDD64211E7BE40060A993 /* ListViewController.swift */,
 				17DFDD74211E7D840060A993 /* ListViewController.xib */,
 				9CA20FA6215C7EEB0014433A /* DetailViewController.swift */,
+				80E6745B21B8C316009E6035 /* SearchKeywordHistory */,
 				9CA20FA7215C7EEB0014433A /* DetailViewController.xib */,
 				17DFDD69211E7BF10060A993 /* Assets.xcassets */,
 				17DFDD6B211E7BF10060A993 /* LaunchScreen.storyboard */,
@@ -93,6 +105,32 @@
 				9C62B1942165B0FF00B15B5C /* RepositoryCell.xib */,
 			);
 			path = "swift-rindoku-sample";
+			sourceTree = "<group>";
+		};
+		31691354354A9ED46E6A8A22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8270D882B047C7DE29A59DC7 /* Pods_swift_rindoku_sample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4710F56DA76087B07A2E2071 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2E9A9BB3B1CA76DC7DA39E7 /* Pods-swift-rindoku-sample.debug.xcconfig */,
+				4F2FE9774C2EE32300AB047B /* Pods-swift-rindoku-sample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		80E6745B21B8C316009E6035 /* SearchKeywordHistory */ = {
+			isa = PBXGroup;
+			children = (
+				80E6745C21B8C436009E6035 /* SearchKeywordHistory.swift */,
+				80E6745E21B8C49C009E6035 /* SearchKeywordHistoryManager.swift */,
+			);
+			path = SearchKeywordHistory;
 			sourceTree = "<group>";
 		};
 		9C042FE8216EE97300689273 /* GitHubClient */ = {
@@ -142,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17DFDD71211E7BF10060A993 /* Build configuration list for PBXNativeTarget "swift-rindoku-sample" */;
 			buildPhases = (
+				4B9CD9EFDC24936CB9A2748E /* [CP] Check Pods Manifest.lock */,
 				17DFDD5B211E7BE40060A993 /* Sources */,
 				17DFDD5C211E7BE40060A993 /* Frameworks */,
 				17DFDD5D211E7BE40060A993 /* Resources */,
+				93681E00D73414F602016F13 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -204,6 +244,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4B9CD9EFDC24936CB9A2748E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swift-rindoku-sample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93681E00D73414F602016F13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		17DFDD5B211E7BE40060A993 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -212,7 +301,9 @@
 				9C042FF4216EF07800689273 /* GitHubClientError.swift in Sources */,
 				9C042FEF216EED4D00689273 /* SearchResponse.swift in Sources */,
 				9CA20FA8215C7EEB0014433A /* DetailViewController.swift in Sources */,
+				80E6745F21B8C49C009E6035 /* SearchKeywordHistoryManager.swift in Sources */,
 				9C993F222178232D00D789B1 /* HTTPMethod.swift in Sources */,
+				80E6745D21B8C436009E6035 /* SearchKeywordHistory.swift in Sources */,
 				17DFDD65211E7BE40060A993 /* ListViewController.swift in Sources */,
 				17DFDD63211E7BE40060A993 /* AppDelegate.swift in Sources */,
 				9C23A87B2181625C00C72BBF /* GitHubClient.swift in Sources */,
@@ -354,6 +445,7 @@
 		};
 		17DFDD72211E7BF10060A993 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2E9A9BB3B1CA76DC7DA39E7 /* Pods-swift-rindoku-sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -370,6 +462,7 @@
 		};
 		17DFDD73211E7BF10060A993 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F2FE9774C2EE32300AB047B /* Pods-swift-rindoku-sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
