@@ -6,8 +6,9 @@
 //  Copyright © 2018 hicka04. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
-struct SearchKeywordHistory :Codable{
-    let keyword: String
+class SearchKeywordHistory: Object{
+    @objc dynamic var keyword: String = ""
+    @objc dynamic var createdAt: Date = Date()
 }

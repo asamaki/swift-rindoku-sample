@@ -12,6 +12,7 @@
 		17DFDD6A211E7BF10060A993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17DFDD69211E7BF10060A993 /* Assets.xcassets */; };
 		17DFDD6D211E7BF10060A993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DFDD6B211E7BF10060A993 /* LaunchScreen.storyboard */; };
 		17DFDD75211E7D840060A993 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DFDD74211E7D840060A993 /* ListViewController.xib */; };
+		8066D01521CB36040084691F /* SearchKeywordHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066D01421CB36040084691F /* SearchKeywordHistoryService.swift */; };
 		80E6745D21B8C436009E6035 /* SearchKeywordHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6745C21B8C436009E6035 /* SearchKeywordHistory.swift */; };
 		80E6745F21B8C49C009E6035 /* SearchKeywordHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6745E21B8C49C009E6035 /* SearchKeywordHistoryManager.swift */; };
 		9C042FEB216EE9B700689273 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C042FEA216EE9B700689273 /* User.swift */; };
@@ -39,6 +40,7 @@
 		17DFDD6E211E7BF10060A993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17DFDD74211E7D840060A993 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		4F2FE9774C2EE32300AB047B /* Pods-swift-rindoku-sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-rindoku-sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample.release.xcconfig"; sourceTree = "<group>"; };
+		8066D01421CB36040084691F /* SearchKeywordHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordHistoryService.swift; sourceTree = "<group>"; };
 		80E6745C21B8C436009E6035 /* SearchKeywordHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordHistory.swift; sourceTree = "<group>"; };
 		80E6745E21B8C49C009E6035 /* SearchKeywordHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordHistoryManager.swift; sourceTree = "<group>"; };
 		8270D882B047C7DE29A59DC7 /* Pods_swift_rindoku_sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_rindoku_sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				80E6745C21B8C436009E6035 /* SearchKeywordHistory.swift */,
+				8066D01421CB36040084691F /* SearchKeywordHistoryService.swift */,
 				80E6745E21B8C49C009E6035 /* SearchKeywordHistoryManager.swift */,
 			);
 			path = SearchKeywordHistory;
@@ -312,6 +315,7 @@
 				9C042FF7216EF2D700689273 /* GitHubRequest.swift in Sources */,
 				9C62B1952165B0FF00B15B5C /* RepositoryCell.swift in Sources */,
 				9C042FF2216EEFDF00689273 /* GitHubAPIError.swift in Sources */,
+				8066D01521CB36040084691F /* SearchKeywordHistoryService.swift in Sources */,
 				9C042FED216EE9C200689273 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

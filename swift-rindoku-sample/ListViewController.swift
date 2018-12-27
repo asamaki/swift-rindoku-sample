@@ -13,7 +13,7 @@ class ListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     let cellId = "cellId"
     var searchController = UISearchController()
-    let searchKeywordHistoryManager = SearchKeywordHistoryManager()
+    var searchKeywordHistoryService = SearchKeywordHistoryService()
     
     // 配列を定義してこれを元にtableViewに表示
     // APIクライアントを作ったらそのデータに差し替え
@@ -48,10 +48,12 @@ class ListViewController: UIViewController {
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        if let history = searchKeywordHistoryManager.load() {
+        if let history = searchKeywordHistoryService.findRecent() {
             searchController.searchBar.text = history.keyword
             loadData(keyword: history.keyword)
         }
+        
+        print(searchKeywordHistoryService.findAll())
 
         definesPresentationContext = true
         self.navigationItem.searchController = searchController
@@ -103,8 +105,9 @@ extension ListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchText = searchBar.text!
         loadData(keyword: searchText)
-        let history = SearchKeywordHistory(keyword: searchText)
-        searchKeywordHistoryManager.append(searchKeywordHistory: history)
+        let history = SearchKeywordHistory()
+        history.keyword = searchText
+        searchKeywordHistoryService.append(searchKeywordHistory: history)
         self.view.endEditing(true)
     }
 }
