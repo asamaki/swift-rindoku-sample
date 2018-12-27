@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class SearchKeywordHistoryService {
+    let MAX_HISTORY_COUNT = 50
     let realm = try! Realm()
 
     func findAll() -> Results<SearchKeywordHistory>{
@@ -18,9 +19,21 @@ class SearchKeywordHistoryService {
     func findRecent() -> SearchKeywordHistory? {
         return realm.objects(SearchKeywordHistory.self).sorted(byKeyPath: "createdAt", ascending: false).first
     }
+    func findAllCreatedAtSortAsc() -> Results<SearchKeywordHistory>{
+        return realm.objects(SearchKeywordHistory.self).sorted(byKeyPath: "createdAt", ascending: true)
+    }
     func append(searchKeywordHistory: SearchKeywordHistory) {
-        try! realm.write() {
-            realm.add(searchKeywordHistory)
+        let histories = findAllCreatedAtSortAsc()
+        if histories.count >= MAX_HISTORY_COUNT {
+            let deleteTarget = histories.first!
+            try! realm.write() {
+                realm.delete(deleteTarget)
+                realm.add(searchKeywordHistory)
+            }
+        } else {
+            try! realm.write() {
+                realm.add(searchKeywordHistory)
+            }
         }
     }
 }
