@@ -11,13 +11,26 @@ import UIKit
 class ListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    let cellId = "cellId"
-    var searchController = UISearchController()
-    var searchKeywordHistoryService = SearchKeywordHistoryService()
+    private let cellId = "cellId"
+    // UIパーツの初期化をクロージャ内にいれると
+    // 宣言と初期化処理がまとまるので個人的にはよくこう書きます
+    // viewDidLoadがすっきりすると思います
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.placeholder = "キーワードを入力"
+        searchController.searchBar.delegate = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        return searchController
+    }()
+    // var -> private let
+    private let searchKeywordHistoryStore = SearchKeywordHistoryStore()
     
     // 配列を定義してこれを元にtableViewに表示
     // APIクライアントを作ったらそのデータに差し替え
-    var data: [Repository] = [] {
+    private var data: [Repository] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -42,22 +55,16 @@ class ListViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: cellId)
         
         // 検索バー配置
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.sizeToFit()
-        searchController.searchBar.placeholder = "キーワードを入力"
-        searchController.searchBar.delegate = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
-        if let history = searchKeywordHistoryService.findRecent() {
-            searchController.searchBar.text = history.keyword
-            loadData(keyword: history.keyword)
-        }
-        
-        print(searchKeywordHistoryService.findAll())
-
         definesPresentationContext = true
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        if let recentKeyword = searchKeywordHistoryStore.findRecentKeyword() {
+            searchController.searchBar.text = recentKeyword
+            fetchData(keyword: recentKeyword)
+        }
+        
+        print(searchKeywordHistoryStore.findAll())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,8 +76,9 @@ class ListViewController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-    
-    func loadData(keyword: String) {
+    // loadはローカルから読み込むメソッドに見えるので
+    // fetchにするのが適切かなと思います
+    private func fetchData(keyword: String) {
         let request = GitHubAPI.SearchRepositories(keyword: keyword)
         GitHubClient().send(request: request) { [weak self] result in
             guard let self = self else {
@@ -94,7 +102,8 @@ class ListViewController: UIViewController {
             }
         }
     }
-    func showAlert(title: String, message: String){
+    // UIAlertControllerのextensionでもいいと思います
+    private func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
@@ -104,10 +113,8 @@ class ListViewController: UIViewController {
 extension ListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchText = searchBar.text!
-        loadData(keyword: searchText)
-        let history = SearchKeywordHistory()
-        history.keyword = searchText
-        searchKeywordHistoryService.append(searchKeywordHistory: history)
+        fetchData(keyword: searchText)
+        searchKeywordHistoryStore.append(keyword: searchText)
         self.view.endEditing(true)
     }
 }
