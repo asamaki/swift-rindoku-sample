@@ -13,14 +13,14 @@ class SearchKeywordHistoryService {
     let MAX_HISTORY_COUNT = 50
     let realm = try! Realm()
 
-    func findAll() -> Results<SearchKeywordHistory>{
-        return realm.objects(SearchKeywordHistory.self).sorted(byKeyPath: "createdAt", ascending: false)
+    func findAll() -> [SearchKeywordHistory]{
+        return Array(realm.objects(SearchKeywordHistory.self).sorted(byKeyPath: "createdAt", ascending: false))
     }
     func findRecent() -> SearchKeywordHistory? {
         return realm.objects(SearchKeywordHistory.self).sorted(byKeyPath: "createdAt", ascending: false).first
     }
-    func findAllCreatedAtSortAsc() -> Results<SearchKeywordHistory>{
-        return realm.objects(SearchKeywordHistory.self).sorted(byKeyPath: "createdAt", ascending: true)
+    func findAllCreatedAtSortAsc() -> [SearchKeywordHistory]{
+        return Array(realm.objects(SearchKeywordHistory.self).sorted(byKeyPath: "createdAt", ascending: true))
     }
     func append(keyword: String) {
         let histories = findAllCreatedAtSortAsc()
