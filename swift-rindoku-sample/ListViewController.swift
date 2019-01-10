@@ -105,9 +105,7 @@ extension ListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchText = searchBar.text!
         loadData(keyword: searchText)
-        let history = SearchKeywordHistory()
-        history.keyword = searchText
-        searchKeywordHistoryService.append(searchKeywordHistory: history)
+        searchKeywordHistoryService.append(keyword: searchText)
         self.view.endEditing(true)
     }
 }

@@ -22,18 +22,18 @@ class SearchKeywordHistoryService {
     func findAllCreatedAtSortAsc() -> Results<SearchKeywordHistory>{
         return realm.objects(SearchKeywordHistory.self).sorted(byKeyPath: "createdAt", ascending: true)
     }
-    func append(searchKeywordHistory: SearchKeywordHistory) {
+    func append(keyword: String) {
         let histories = findAllCreatedAtSortAsc()
         if histories.count >= MAX_HISTORY_COUNT {
             let deleteTarget = histories.first!
             try! realm.write() {
                 realm.delete(deleteTarget)
-                realm.add(searchKeywordHistory)
             }
-        } else {
-            try! realm.write() {
-                realm.add(searchKeywordHistory)
-            }
+        }
+        let searchKeywordHistory = SearchKeywordHistory()
+        searchKeywordHistory.keyword = keyword
+        try! realm.write() {
+            realm.add(searchKeywordHistory)
         }
     }
 }
