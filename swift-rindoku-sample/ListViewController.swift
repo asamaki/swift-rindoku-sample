@@ -42,7 +42,9 @@ class ListViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: cellId)
         
         // 検索バー配置
-        searchController = UISearchController(searchResultsController: nil)
+        let searchResultsController = SearchKeywordHistoryResultsController()
+        searchResultsController.delegate = self
+        searchController = UISearchController(searchResultsController: searchResultsController)
         searchController.searchBar.sizeToFit()
         searchController.searchBar.placeholder = "キーワードを入力"
         searchController.searchBar.delegate = self
@@ -101,11 +103,20 @@ class ListViewController: UIViewController {
     }
 }
 
-extension ListViewController: UISearchBarDelegate {
+extension ListViewController: UISearchBarDelegate, SearchKeywordHistoryResultsDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchText = searchBar.text!
         loadData(keyword: searchText)
         searchKeywordHistoryService.append(keyword: searchText)
+        searchController.isActive = false
+        searchBar.text = searchText
+        self.view.endEditing(true)
+    }
+    func search(searchText: String) {
+        loadData(keyword: searchText)
+        searchKeywordHistoryService.append(keyword: searchText)
+        searchController.isActive = false
+        searchController.searchBar.text = searchText
         self.view.endEditing(true)
     }
 }
@@ -127,6 +138,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         // カスタムセルを取り出すときはキャストが必要(強制案ラップでOK)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RepositoryCell
         cell.set(repositoryName: data[indexPath.row].fullName)
+        
         return cell
     }
     
