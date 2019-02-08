@@ -6,7 +6,6 @@
 //  Copyright © 2018 hicka04. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 
 class SearchKeywordHistoryService {
